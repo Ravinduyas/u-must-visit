@@ -15,22 +15,24 @@ header{
     display: flex;
     align-items: center;
     position: relative;
-    z-index: 100;   
+    z-index: 100; 
 }
 header a{
     color: #fff;
     margin-right: 5px;
     padding: 5px 10px;
     transition: .6s;
-    background-color: rgba(225, 225, 255, 01);
+    background-color: rgba(225, 225, 255, 0.1);
+    border-radius: 20px;
 }
 a.active{
-    background-color: #ffc814f8;
+    background-color: #ffc81451;
     border-radius: 2px;
 }
 header a:hover{
-    background-color: #ffc814f8;
-    border-radius: 2px;
+    background-color: #ff7700bc;
+    border-radius: 5px;
+    color: #000;
 }
 .slider{
     height: 100vh;
@@ -87,13 +89,14 @@ header a:hover{
 }
 .slider .list .item button{
     border: none;
-    background-color: #eee;
+    background-color: #fff;
     font-weight: 500;
     cursor: pointer;
     transition: .6s;
     letter-spacing: 2px;
     padding: 8px 18px;
     border-radius: 3px;
+    margin: auto;
 }
 .Thumbnail{
     position: absolute;
@@ -207,5 +210,42 @@ header a:hover{
 @keyframes Revel_next {
     from{
         transform: translateX(150px);
+    }
+}
+.slider.prev .list .item img{
+    z-index: 100;
+}
+.slider.prev .list .item:nth-child(2){
+    z-index: 2;
+}
+.slider.prev .list .item:nth-child(2) img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: OutFrame 2s;
+}
+@keyframes OutFrame {
+    to{
+        width: 150px;
+        height: 220px;
+        bottom: 40px;
+        left: 50%;
+    }
+}
+.slider.prev .Thumbnail .item:nth-child(1){
+    overflow: hidden;
+    opacity: 0;
+    animation: showThumb 2s linear forwards;
+}
+.slider.prev .Thumbnail .item:nth-child(1) .content .title,
+.slider.prev .Thumbnail .item:nth-child(1) .content .type,
+.slider.prev .Thumbnail .item:nth-child(1) .content .description,
+.slider.prev .Thumbnail .item:nth-child(1) .content button{
+    animation: ContentMask 0.2s linear forwards;
+}
+@keyframes ContentMask {
+    to{
+        filter: blur(20px);
+        opacity: 0;
     }
 }
