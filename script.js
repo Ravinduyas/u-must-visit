@@ -9,6 +9,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     Thumb.appendChild(Thumb_items[0]);
 
+    function setLoading(button) {
+        button.classList.add('loading');
+        setTimeout(() => {
+            button.classList.remove('loading');
+        }, 1000); // Duration of the loading animation
+    }
+
     function MoveSlider(direction){
         let sliderItems = SliderList.querySelectorAll('.item');
         let Thumb_items = document.querySelectorAll('.Thumbnail .item');
@@ -36,3 +43,8 @@ document.addEventListener("DOMContentLoaded", function() {
         MoveSlider('prev');
     });
 });
+
+
+
+
+
